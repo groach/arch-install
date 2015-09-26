@@ -1,9 +1,13 @@
 #Arch Linux MBP Retina Install
+* Retina Early 2013
+* Model A1398 (EMC 2673)
+* Broadcom BCM43xx 1.0 (7.15.166.24.3)
 
 ##References
 * [github.com/terlar](https://gist.github.com/terlar/6143325)
 * [Arch Linux with rMBP](https://vec.io/posts/use-arch-linux-and-xmonad-on-macbook-pro-with-retina-display)
 * [bsofdth/mac-arch](https://github.com/bsofdth/mac-arch)
+* [Broadcom Wireless Driver](https://wiki.archlinux.org/index.php/Broadcom_wireless)
 
 ##Preparation
 
