@@ -5,6 +5,7 @@
 
 ##References
 * [Official Arch Documentation](https://wiki.archlinux.org/index.php/Installation_guide)
+* [Dual boot Arch and Mac OS](http://zanshin.net/2015/02/05/arch-linux-on-a-macbook-pro-part-1-creating-a-usb-installer/)
 * [terlar MBP Notes](https://gist.github.com/terlar/6143325)
 * [Arch Linux with rMBP](https://vec.io/posts/use-arch-linux-and-xmonad-on-macbook-pro-with-retina-display)
 * [bsofdth MBP Notes](https://github.com/bsofdth/mac-arch)
@@ -17,7 +18,7 @@
 * [A Bootable Arch Flash Drive](http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-mac-osx)
 * [rEFInd](http://www.rodsbooks.com/refind/getting.html)
 * [Thunderbolt Ethernet Adapter](http://www.amazon.com/Thunderbolt-to-Gigabit-Ethernet-Adapter/dp/B008ALA6DW)
-
+* Split Drive into 2 partitions using MacOS DiskUtility
 
 ##Arch Install
 Hookup thunderbolt ethernet and insert bootable arch flash drive. Reboot and hold `⌘`. Choose `EFI`. 
@@ -74,8 +75,12 @@ Mount existing EFI partition, found from `lsblk -f` as `Boot`:
 		# create new RAM disk
 		mkinitcpio -p linux
 		
-		# set root password
+		#create user
+		useradd -m -g users -G wheel -s /bin/bash username
+		
+		# set passwords
 		passwd
+		passwd username
 
 ###Bootloader [rEFInd](https://wiki.archlinux.org/index.php/REFInd)
 
@@ -99,6 +104,7 @@ Save, quit.
 
 ###Broadcom Drivers
 
+		su username #cannot be root
 		yaourt -S broadcom-wl-dkms
 
 ###Reboot
